@@ -53,8 +53,10 @@ https://templatemo.com/tm-557-grad-school
                 <div class="card" style="background: #101025;">
                     <div class="card-header" style="color: #888; border-bottom: solid 1px;">
                         <div class="row mt-2">
-                            <select class="form-control col-md-2 mt-2 ml-1" style="background: #19192e;" name="" id="">
-                                    <option value="halo">gatau</option>
+                            <select class="form-control col-md-2 mt-2 ml-1 menu" style="background: #19192e;" id="menu" onchange="window.open(this.options[this.selectedIndex].value,'_self')">
+                                @foreach ($chapters as $chap)
+                                    <option value="{{ route('mangol.chapter', $chap->id) }}">{{ $chap->title }}</option>
+                                @endforeach
                             </select>
 
                             <div class="form-group ml-auto mt-2 mr-1">
@@ -63,15 +65,17 @@ https://templatemo.com/tm-557-grad-school
                             </div>
                         </div>
                     </div>
-
+                    
                     <div class="card-body text-center">
                         {!! $chapter->image !!}
                     </div>
 
                     <div class="card-header" style="color: #888; border-top: solid 1px;">
                         <div class="row mt-2">
-                            <select class="form-control col-md-2 mt-2 ml-1" style="background: #19192e;" name="" id="">
-                                <option value="halo">halo</option>
+                            <select class="form-control col-md-2 mt-2 ml-1 menu" style="background: #19192e;" id="menu" onchange="window.open(this.options[this.selectedIndex].value,'_self')">
+                                @foreach ($chapters as $chap)
+                                    <option value="{{ route('mangol.chapter', $chap->id) }}">{{ $chap->title }}</option>
+                                @endforeach
                             </select>
 
                             <div class="form-group ml-auto mr-1 mt-2">
@@ -152,5 +156,11 @@ https://templatemo.com/tm-557-grad-school
   <script src="{{ asset('assets/js/video.js') }}"></script>
   <script src="{{ asset('assets/js/slick-slider.js') }}"></script>
   <script src="{{ asset('assets/js/custom.js') }}"></script>
+  {{--  <script type="text/javascript">
+    var urlmenu = document.getElementById( 'menu' );
+    urlmenu.onchange = function() {
+        window.open( this.options[ this.selectedIndex ].value, '_self');
+    };
+</script>  --}}
 </body>
 </html>

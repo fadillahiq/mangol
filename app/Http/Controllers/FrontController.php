@@ -8,6 +8,7 @@ use App\Models\Comment;
 use App\Models\Cover;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class FrontController extends Controller
 {
@@ -29,13 +30,15 @@ class FrontController extends Controller
     public function mangol_chapter($id)
     {
         $chapter = Chapter::findOrFail($id);
+        $chapters = DB::table('chapters')->get();
+        $comics = DB::table('covers')->get();
         // get previous user id
         $previous = Chapter::where('id', '<', $chapter->id)->max('id');
 
         // get next chapter id
         $next = Chapter::where('id', '>', $chapter->id)->min('id');
 
-        return view('front.chapter', compact('chapter'))->with('previous', $previous)->with('next', $next);
+        return view('front.chapter', compact('chapter', 'chapters','comics' ))->with('previous', $previous)->with('next', $next);
     }
 
     public function mangol_complete()

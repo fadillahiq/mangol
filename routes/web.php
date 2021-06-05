@@ -27,7 +27,6 @@ Route::get('/all-manga', [FrontController::class, 'mangol_all'])->name('mangol.a
 Route::get('/search', [FrontController::class, 'search'])->name('search');
 
 Auth::routes([
-    'register' => false
 ]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
