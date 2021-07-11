@@ -33,7 +33,7 @@ class FrontController extends Controller
         $comics = DB::table('covers')->get();
         $chapter = Chapter::findOrFail($id);
         //
-        $new_chapters = DB::table('chapters')->where('id', $id)->get();
+        $new_chapters = DB::table('chapters')->where('cover_id', $chapter->cover_id)->orderBy('title', 'desc')->get();
         
         // get previous user id
         $previous = Chapter::where('id', '<', $chapter->id)->max('id');
