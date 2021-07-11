@@ -54,14 +54,14 @@ https://templatemo.com/tm-557-grad-school
                     <div class="card-header" style="color: #888; border-bottom: solid 1px;">
                         <div class="row mt-2">
                             <select class="form-control col-md-2 mt-2 ml-1 menu" style="background: #19192e;" id="menu" onchange="window.open(this.options[this.selectedIndex].value,'_self')">
-                                @foreach ($chapters as $chap)
-                                    <option value="{{ route('mangol.chapter', $chap->id) }}">{{ $chap->title }}</option>
-                                @endforeach
+                                @foreach ($new_chapters as $new)
+                                    <option value="{{ route('mangol.chapter', $new->id) }}">{{ $new->title }}</option>
+                                @endforeach                                 
                             </select>
 
                             <div class="form-group ml-auto mt-2 mr-1">
-                                <a class="btn btn-primary btn-sm mr-3" href="#">« Previous Chapter</a>
-                                <a class="btn btn-primary btn-sm" href="#">Next Chapter »</a>
+                                <a class="btn btn-primary btn-sm mr-3" href="{{ URL::to( '/chapter/' . $previous ) }}">« Previous Chapter</a>
+                                <a class="btn btn-primary btn-sm" href="{{ URL::to( '/chapter/' . $next ) }}">Next Chapter »</a>
                             </div>
                         </div>
                     </div>
@@ -73,14 +73,14 @@ https://templatemo.com/tm-557-grad-school
                     <div class="card-header" style="color: #888; border-top: solid 1px;">
                         <div class="row mt-2">
                             <select class="form-control col-md-2 mt-2 ml-1 menu" style="background: #19192e;" id="menu" onchange="window.open(this.options[this.selectedIndex].value,'_self')">
-                                @foreach ($chapters as $chap)
+                                {{--  @foreach ($chapters as $chap)
                                     <option value="{{ route('mangol.chapter', $chap->id) }}">{{ $chap->title }}</option>
-                                @endforeach
+                                @endforeach  --}}
                             </select>
 
                             <div class="form-group ml-auto mr-1 mt-2">
-                                <a class="btn btn-primary btn-sm mr-3" href="">« Previous Chapter</a>
-                                <a class="btn btn-primary btn-sm" href="">Next Chapter »</a>
+                                <a class="btn btn-primary btn-sm mr-3" href="{{ URL::to( '/chapter/' . $previous ) }}">« Previous Chapter</a>
+                                <a class="btn btn-primary btn-sm" href="{{ URL::to( '/chapter/' . $next ) }}">Next Chapter »</a>
                             </div>
                         </div>
                     </div>

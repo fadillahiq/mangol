@@ -85,7 +85,6 @@ https://templatemo.com/tm-557-grad-school
                 <a href="{{ route('mangol.detail', $comic->id) }}">{{ $comic->title }}</a>
               </div>
               <ul class="chapter">
-
                 @foreach ($comic->chapters()->take(3)->orderBy('created_at', 'desc')->get() as $new)
                 <li>
                     <a href="{{ route('mangol.chapter', $new->id) }}">{{ $new->title }}</a>
@@ -109,8 +108,8 @@ https://templatemo.com/tm-557-grad-school
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></>
     <script src="assets/js/isotope.min.js"></script>
     <script src="assets/js/owl-carousel.js"></script>
     <script src="assets/js/lightbox.js"></script>
